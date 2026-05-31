@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="LuxeLacquer is a modern nail salon website with 3D animation, services, gallery, and an interactive booking experience."
+    />
+    <title>LuxeLacquer Nail Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="LuxeLacquer home">
+          <span class="brand-mark">LL</span>
+          <span>LuxeLacquer</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle menu</span>
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#services">Services</a>
+          <a href="#gallery">Looks</a>
+          <a href="#artists">Artists</a>
+          <a href="#booking">Book</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Award-winning nail atelier</p>
+          <h1>Luxury manicures in an immersive 3D beauty lounge.</h1>
+          <p class="hero-text">
+            A futuristic nail salon experience for gel extensions, nail art, chrome finishes, and restorative spa care.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#booking">Reserve a chair</a>
+            <a class="button button-secondary" href="#gallery">Explore looks</a>
+          </div>
+          <div class="hero-stats" aria-label="Salon highlights">
+            <div><strong>4.9</strong><span>client rating</span></div>
+            <div><strong>18k+</strong><span>sets styled</span></div>
+            <div><strong>45</strong><span>min express gel</span></div>
+          </div>
+        </div>
+        <div class="hero-stage reveal" aria-label="Animated 3D nail polish showcase">
+          <canvas id="salon-scene"></canvas>
+          <div class="stage-card stage-card-top">
+            <span>Today</span>
+            <strong>8 openings</strong>
+          </div>
+          <div class="stage-card stage-card-bottom">
+            <span>Trending</span>
+            <strong>Velvet aura chrome</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="marquee" aria-label="Featured treatments">
+        <div class="marquee-track">
+          <span>Gel X</span><span>Russian manicure</span><span>Aura nails</span><span>Chrome powder</span><span>3D charms</span>
+          <span>BIAB overlay</span><span>Gel X</span><span>Russian manicure</span><span>Aura nails</span><span>Chrome powder</span>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Signature menu</p>
+          <h2>High-gloss treatments with salon-grade care.</h2>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal" data-tilt>
+            <span class="service-icon">✦</span>
+            <h3>Glass Gel Manicure</h3>
+            <p>Structured gel, cuticle refinement, mirror shine, and 21-day wear.</p>
+            <strong>$58</strong>
+          </article>
+          <article class="service-card reveal" data-tilt>
+            <span class="service-icon">◆</span>
+            <h3>Sculpted Extensions</h3>
+            <p>Lightweight Gel X or sculpted forms tailored to your ideal length and shape.</p>
+            <strong>$92</strong>
+          </article>
+          <article class="service-card reveal" data-tilt>
+            <span class="service-icon">✧</span>
+            <h3>Editorial Nail Art</h3>
+            <p>Chrome, aura gradients, hand-painted details, crystals, and dimensional charms.</p>
+            <strong>from $35</strong>
+          </article>
+          <article class="service-card reveal" data-tilt>
+            <span class="service-icon">◇</span>
+            <h3>Recovery Spa Ritual</h3>
+            <p>Strengthening treatment, warm oil soak, massage, and barrier-repair finish.</p>
+            <strong>$74</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience section-grid">
+        <div class="phone-mockup reveal" aria-hidden="true">
+          <div class="phone-screen">
+            <span class="pulse-dot"></span>
+            <h3>Live shade match</h3>
+            <p>Move your cursor over the 3D bottles to shift lighting and color mood.</p>
+            <div class="shade-stack">
+              <span style="--shade:#ff7db7"></span>
+              <span style="--shade:#a25cff"></span>
+              <span style="--shade:#ffe2f1"></span>
+              <span style="--shade:#2d153c"></span>
+            </div>
+          </div>
+        </div>
+        <div class="experience-copy reveal">
+          <p class="eyebrow">Interactive consultation</p>
+          <h2>Choose your vibe before you arrive.</h2>
+          <p>
+            Our digital-first flow helps guests preview palettes, select nail shapes, estimate appointment time,
+            and arrive with a polished vision.
+          </p>
+          <ul class="check-list">
+            <li>Smart service recommendations</li>
+            <li>Sanitized tools and non-toxic product options</li>
+            <li>Aftercare plan sent after each visit</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="gallery" id="gallery">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Look book</p>
+          <h2>Fresh sets designed for every mood.</h2>
+        </div>
+        <div class="gallery-grid">
+          <button class="look-card reveal active" type="button" data-look="Rose chrome">
+            <span>Rose chrome</span>
+          </button>
+          <button class="look-card reveal" type="button" data-look="Pearl french">
+            <span>Pearl french</span>
+          </button>
+          <button class="look-card reveal" type="button" data-look="Cosmic velvet">
+            <span>Cosmic velvet</span>
+          </button>
+          <button class="look-card reveal" type="button" data-look="Minimal blush">
+            <span>Minimal blush</span>
+          </button>
+        </div>
+        <p class="look-output" aria-live="polite">Selected look: <strong>Rose chrome</strong></p>
+      </section>
+
+      <section class="artists" id="artists">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Meet the artists</p>
+          <h2>Detail-obsessed techs, editorial-level finishes.</h2>
+        </div>
+        <div class="artist-row">
+          <article class="artist-card reveal">
+            <div class="artist-avatar">M</div>
+            <h3>Mira</h3>
+            <p>Chrome gradients & soft sculpture</p>
+          </article>
+          <article class="artist-card reveal">
+            <div class="artist-avatar">S</div>
+            <h3>Soleil</h3>
+            <p>Hand-painted art & crystals</p>
+          </article>
+          <article class="artist-card reveal">
+            <div class="artist-avatar">N</div>
+            <h3>Nova</h3>
+            <p>Russian manicure & BIAB</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="booking" id="booking">
+        <div class="booking-panel reveal">
+          <div>
+            <p class="eyebrow">Book your glow-up</p>
+            <h2>Reserve a chair in under a minute.</h2>
+            <p>Tell us your dream set and we will confirm your artist, timing, and quote.</p>
+          </div>
+          <form class="booking-form">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Service
+              <select name="service" required>
+                <option value="">Choose a service</option>
+                <option>Glass Gel Manicure</option>
+                <option>Sculpted Extensions</option>
+                <option>Editorial Nail Art</option>
+                <option>Recovery Spa Ritual</option>
+              </select>
+            </label>
+            <label>
+              Preferred date
+              <input type="date" name="date" required />
+            </label>
+            <button class="button button-primary" type="submit">Request appointment</button>
+          </form>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="#top"><span class="brand-mark">LL</span><span>LuxeLacquer</span></a>
+      <p>Open daily · 10 AM – 8 PM · Downtown Beauty District</p>
+      <div class="social-links" aria-label="Social links">
+        <a href="#top">Instagram</a>
+        <a href="#top">TikTok</a>
+        <a href="#booking">Book</a>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
